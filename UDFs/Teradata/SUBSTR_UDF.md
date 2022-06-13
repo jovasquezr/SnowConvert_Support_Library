@@ -25,11 +25,11 @@ IMMUTABLE
 AS
 $$
   if (START_POSITION > 0) {
-      return BASE_EXPRESSION.SUBSTR(START_POSITION -1, LENGTH);
+      return BASE_EXPRESSION.substr(START_POSITION -1, LENGTH);
   } else if (START_POSITION == 0 ) {
-      return BASE_EXPRESSION.SUBSTR(START_POSITION, LENGTH - 1);
+      return BASE_EXPRESSION.substr(START_POSITION, LENGTH - 1);
   } else {
-      return BASE_EXPRESSION.SUBSTR(0, LENGTH + START_POSITION - 1);
+      return BASE_EXPRESSION.substr(0, LENGTH + START_POSITION - 1);
   }
 $$
 ;
@@ -44,16 +44,23 @@ $$
 $$
 ;
 ```
-
-  ## Examples 
+  ## Examples
 
 ```sql
-SELECT SUBSTR_TD_UDF('ABCDE',-1,1); 	-- Returns empty string
-SELECT SUBSTR_TD_UDF('ABCDE',-1,2); 	-- Returns empty string
-SELECT SUBSTR_TD_UDF('ABCDE',-1,3); 	-- Returns 'A'
-SELECT SUBSTR_TD_UDF('ABCDE',-1,4); 	-- Returns 'AB'
-SELECT SUBSTR_TD_UDF('ABCDE',0,1); 		-- Returns empty string
-SELECT SUBSTR_TD_UDF('ABCDE',0,2); 		-- Returns 'A'
-SELECT SUBSTR_TD_UDF('ABCDE',0,3); 		-- Returns 'AB'
-SELECT SUBSTR_TD_UDF('ABCDE',0,4); 		-- Returns 'ABC'
+SELECT SUBSTR_TD_UDF('ABC',-1,1); 	-- Returns empty string
+SELECT SUBSTR_TD_UDF('ABC',-1,2); 	-- Returns empty string
+SELECT SUBSTR_TD_UDF('ABC',-1,3); 	-- Returns 'A'
+SELECT SUBSTR_TD_UDF('ABC',0,1); 		-- Returns empty string
+SELECT SUBSTR_TD_UDF('ABC',0,2); 		-- Returns 'A'
+```
+# Equivalent
+[TERADATA'S SUBSTR FUNCTIONALITY](https://docs.teradata.com/r/kmuOwjp1zEYg98JsB8fu_A/lxOd~YrdVkJGt0_anAEXFQ)
+
+## Examples 
+```sql
+SELECT SUBSTR('ABC',-1,1);  -- Returns empty string
+SELECT SUBSTR('ABC',-1,2);  -- Returns empty string
+SELECT SUBSTR('ABC',-1,3);  -- Returns 'A'
+SELECT SUBSTR('ABC',0,1);   -- Returns empty string
+SELECT SUBSTR('ABC',0,2);   -- Returns 'A'
 ```
