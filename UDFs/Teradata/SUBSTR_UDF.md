@@ -54,7 +54,7 @@ SELECT SUBSTR_TD_UDF('ABC',0,1); 		-- Returns empty string
 SELECT SUBSTR_TD_UDF('ABC',0,2); 		-- Returns 'A'
 ```
 # Equivalent
-[TERADATA'S SUBSTR FUNCTIONALITY](https://docs.teradata.com/r/kmuOwjp1zEYg98JsB8fu_A/lxOd~YrdVkJGt0_anAEXFQ)
+[Teradata's substr functionality](https://docs.teradata.com/r/kmuOwjp1zEYg98JsB8fu_A/lxOd~YrdVkJGt0_anAEXFQ)
 
 ## Examples 
 ```sql
